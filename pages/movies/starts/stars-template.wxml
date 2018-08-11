@@ -1,0 +1,17 @@
+<template name="starsTmplate"> 
+   <view class='stars-container'>
+    <view class='stars'>
+    <!--  wx.if="{{i}}"  h或者  wx.if="{{i==1}}" -->
+   <block wx:for="{{stars}}"  wx:for-item="i" wx:key="i">
+     <image wx:if="{{i==1}}" src='/images/icon/star.png'></image>
+     <image wx:elif="{{i==2}}" src='/images/icon/star_ban.png'></image>
+     <image wx:else src='/images/icon/none-star.png'></image>
+   </block>
+   <!-- 条件语句 wwx:if="{{i==1}}"  wx:elif="{{i==2}}"  wx:else  -->
+  <!-- 2018-7-15 0:10  改写 显示半星成功  -->
+   </view>
+         <text class='stars-score'>{{average}}</text>
+   </view>
+</template>
+
+<!--最低层界面 五个星星-->

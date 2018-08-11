@@ -1,0 +1,10 @@
+@import "../movie/movie-template.wxss";
+.single-view-container{
+  float: left;
+  margin-bottom: 40rpx;
+}
+.grid-container{
+  height: 1300rpx;
+  /* //1336苹果的像素个  一定给个高度 2018-7-17 */
+  margin: 40rpx 0 40rpx 10rpx;
+}

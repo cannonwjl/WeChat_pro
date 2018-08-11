@@ -1,0 +1,26 @@
+<import src="../movie/movie-template.wxml" />
+<template name="movieListTemplate">
+  <view class='movie-list-container'>
+    <view class='inner-container'>
+      <view class='movie-head'>
+        <text class='slogan'>{{categoryTitle}}</text>
+        <view catchtap='onMoreTap' class='more' data-category="{{categoryTitle}}">
+          <text class='more-text'>更多</text>
+          <image class='more-img' src='/images/icon/arrow-right.png'></image>
+        </view>
+      </view>
+      <view class='movies-container'>
+      <!-- .开发微信小程序用到"wx:for"时可能会在控制台报"Now you can provide attr "wx:key" for a "wx:for" to improve performance"警告
+
+不要慌张这只是警告不妨碍运行，消除警告只需要在"wx:for"后面添加wx:key="xxx"就行了 -->
+        <block wx:for="{{movies}}" wx:for-item="movie" wx:key="movie">
+          <template is="movieTemplate" data="{{...movie}}" />
+          <!-- <template is="movieTemplate" data="{{...movie}}"/>
+    <template is="movieTemplate" data="{{...movie}}"/>  -->
+        </block>
+
+      </view>
+    </view>
+  </view>
+</template>
+<!-- 第三层 倒数第三层界面 -->

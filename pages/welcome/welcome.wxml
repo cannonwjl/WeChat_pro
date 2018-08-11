@@ -1,0 +1,9 @@
+<!--wxml是编写小程序骨干的文件-->
+<!---<div>0-->
+<view  class='container'>
+  <image class= "user-avatar"  src="/images/a2.png"></image>
+  <text class='user-name'><text style='color:red'> hello </text>      淼 ！喵 ！</text>
+  <view class='moto-container' bindtap='ontap' >
+     <text class='moto' catchtap='onSubtap'>开启小程序之旅</text>
+  </view>
+</view>

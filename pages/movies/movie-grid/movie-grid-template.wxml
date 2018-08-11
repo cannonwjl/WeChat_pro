@@ -1,0 +1,23 @@
+<import src="../movie/movie-template.wxml" />
+<template name="movieGridTemplate">
+ <!-- <view>
+ <text>搜索界面出来了</text></view> -->
+<!-- //2018-7-17 为了实现上拉 刷新 将view 改成 scroll-view -->
+<!---  scroll-y="true"  允许上下动  scroll-x="false"  不允许左右滑动   bindscrolltolower="onScrollLower"  滚动到底部/右边，会触发 scrolltolower 事件  --->
+<!--  触发函数没法在模板template里实现 即  bindscrolltolower="onScrollLower"只能在movie里实现-->
+  <scroll-view class='grid-container' scroll-y="true" scroll-x="false" 
+  bindscrolltolower="onScrollLower">
+  
+    <!-- ...movie 代表展开 movieJavaScript对象 -->
+    <!-- //开发微信小程序用到"wx:for"时可能会在控制台报"Now you can provide attr "wx:key" for a "wx:for" to improve performance"警告
+
+不要慌张这只是警告不妨碍运行，消除警告只需要在"wx:for"后面添加wx:key="xxx"就行了 -->
+    <block wx:for="{{movies}}" wx:for-item="movie" wx:key="movie">
+      <!-- <不能在tamplate上面加样式>   可以在用view包裹起来 给view加 -->
+      <view class='single-view-container'>
+     
+        <template is="movieTemplate" data="{{...movie}}" data-movieid="{{movieId}}" bindtap='onMovieTap' ></template>
+      </view>
+    </block>
+  </scroll-view>
+</template>

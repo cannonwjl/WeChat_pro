@@ -1,0 +1,10 @@
+<!--pages/movies/more-movie/more-movie.wxml-->
+<!-- <text>pages/movies/more-movie/more-movie.wxml</text> -->
+ 
+<import src="../movie-grid/movie-grid-template.wxml"  />
+<template is="movieGridTemplate" data="{{movies}}"/>
+  <!-- <import src="../movie-grid/movie-grid-template.wxml" />
+<template is="movieGridTemplate" data="{{movies}}" />    -->
+
+<!-- 注意这里  data="{{movies}}"    双引号和{{}} 之间不能空格 即不能写成 data="{{movies}} "   2018-7-16 -->
+

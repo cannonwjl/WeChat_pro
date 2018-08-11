@@ -1,0 +1,13 @@
+<import src="../starts/stars-template.wxml" />
+<template name="movieTemplate"   >
+  <!--2018-7-19   //注意获取movieId的时候 注意data-movieid="{{movieId}}"中  data-xx 前面不能变 后面自己去名字并且必须是小写 不能是大写
+    movieId 是绑定好的数据  在movie.js内getMovieListData函数内  
+    获取moveid 方法是movie.js下的onMovieTap -->
+    <view class="movie-container" catchtap="onMovieTap" data-movieid="{{movieId}}">
+      <image src='{{coverageUrl}}' class='movie-img' ></image>
+      <text class='movie-title'>{{title}}</text>
+      <template is="starsTmplate" data="{{stars:stars,score:average}}"/>
+    </view>
+</template>
+
+<!-- 第二层界面 倒数第二层  每个小框 -->

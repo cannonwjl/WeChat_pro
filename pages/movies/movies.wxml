@@ -1,0 +1,30 @@
+<!--pages/movies/movies.wxml-->
+<import src="movies-list/movies-list-template.wxml" />
+<import src="movie-grid/movie-grid-template.wxml" />
+<!-- <import src="movie-grid/movie-grid-template.wxml" /> -->
+    <view class='search'>
+      <icon type='search' class='search-img' size='20' color='$405f80'>
+      </icon>
+      <!-- bindchange="onBindChange" 是焦点失去是触发 bindconfirm='onBindChange'点击按键 ”完成“ 会触发 所以个人取了个巧 俩个触发一个函数  -->
+      <input type='text'  placeholder='电影' placeholder-class='placeholder' bindfocus='onBindFocus'  bindconfirm='onBindChange'></input>
+      <image wx:if="{{xxImgShow}}" src="/images/icon/xx.png" class='xx-img' bindtap='onCancelImgTap'></image>
+            
+    </view>
+<!-- 三个点  ...ininTheaters  代表展开 -->
+<view class="container" wx:if="{{containerShow}}">
+  <view class="movies-template" >
+    <template is="movieListTemplate" data="{{...inTheaters}}"/>
+  </view>
+  <view class='movies-template'>
+    <template is="movieListTemplate"   data="{{...comingSoon}}"/>
+  </view>
+  <view class='movies-template' >
+    <template is="movieListTemplate"  data="{{...top250}}"/>
+  </view>
+</view>
+ <!-- <text>走到这里了</text>  注意这里比较坑 searchPanelShow 一定要和 movie.js里保持一致  -->
+
+<view class="search-panel" wx:if="{{searchPanelShow}}">
+  <!-- <text>走到这里了2</text> -->
+    <template is="movieGridTemplate" data="{{...searchResult}}"/>
+</view>
